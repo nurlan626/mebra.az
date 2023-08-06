@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="getLocationBtn">Konumumu Al</button>
+    <script>
+        // Sayfa yüklendiğinde çağrılacak fonksiyon
+        function init() {
+          const getLocationBtn = document.getElementById('getLocationBtn');
+      
+          getLocationBtn.addEventListener('click', getLocation);
+        }
+      
+        // Konum almak için çağrılacak fonksiyon
+        function getLocation() {
+          if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition, showError);
+          } else {
+            alert('Tarayıcınız konum hizmetini desteklemiyor.');
+          }
+        }
+      
+        // Başarıyla konum alındığında çağrılacak fonksiyon
+        function showPosition(position) {
+          const latitude = position.coords.latitude;
+          const longitude = position.coords.longitude;
+      
+          alert(`Enlem: ${latitude}\nBoylam: ${longitude}`);
+          // Alınan konum bilgisini istediğiniz şekilde kullanabilirsiniz.
+        }
+      
+        // Konum alınırken bir hata oluştuğunda çağrılacak fonksiyon
+        function showError(error) {
+          switch (error.code) {
+            case error.PERMISSION_DENIED:
+              alert('Konum almak için izin verilmedi.');
+              break;
+            case error.POSITION_UNAVAILABLE:
+              alert('Konum bilgisi alınamıyor.');
+              break;
+            case error.TIMEOUT:
+              alert('İstek zaman aşımına uğradı.');
+              break;
+            case error.UNKNOWN_ERROR:
+              alert('Bilinmeyen bir hata oluştu.');
+              break;
+          }
+        }
+      
+        // Sayfa yüklendiğinde init fonksiyonunu çağır
+        document.addEventListener('DOMContentLoaded', init);
+      </script>
+       
+</body>
+</html>

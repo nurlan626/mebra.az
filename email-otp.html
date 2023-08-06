@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qeydiyyat - emailotp - mebra.az</title>
+    <!-- all css here -->
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <link href="./assets/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body>
+    <!-- Section Email OTP Start -->
+    <section class="container-form forms container">
+        <div class="form-logo">
+            <figure>
+                <img src="./assets/images/logo/header-logo.png" alt="header-logo">
+            </figure>
+        </div>
+
+
+        <div class="form-login">
+            <div class="form-content">
+                E-MAIL TƏSDİQİ
+            </div>
+        </div>
+
+        <div class="otp-subtitle">
+            <p id="user__message"></p>
+        </div>
+
+        <form id="email-otp-add">
+            <div class="otp-number d-flex justify-content-center align-items-center">
+                <div class="form-otp">
+                    <input type="number" id="email-otp-number_one" class="otp-border">
+                    <input type="number" id="email-otp-number_two" class="otp-border" disabled>
+                    <input type="number" id="email-otp-number_three" class="otp-border" disabled>
+                    <input type="number" id="email-otp-number_four" class="otp-border" disabled>
+                </div>
+            </div>
+        
+            <div class="otp-second">
+                <span id="otp-email-time"></span>
+            </div>
+    
+            <div class="otp-send d-flex justify-content-center align-items-center">
+                <span>Təsdiq kodu almadınız ?</span>
+                <button type="submit" id="email-otp_newSend">Yenidən göndər</button>
+            </div>
+    
+            <div class="otp-login d-flex justify-content-center align-items-center">
+                <button type="click" class="otp-button">Təsdiq edin</button>
+            </div>
+        </form>
+
+        
+       
+    </section>
+    <!-- Section Email OTP End -->
+
+    <!-- all js here -->
+    <script src="./assets/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous">
+    </script>
+    <script src="./assets/js/otp.js"></script>
+</body>
+
+</html>

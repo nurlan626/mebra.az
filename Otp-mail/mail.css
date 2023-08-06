@@ -1,0 +1,107 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,300;1,500;1,700;1,800&display=swap");
+
+*, * ::before , * ::after { box-sizing: border-box; }
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style-type: none;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.container-form {
+    width: 100%;
+}
+
+.form-logo figure img {
+    width: 100%;
+    height: 55px;
+    display: block;
+    object-fit: contain;
+}
+
+.form-content {
+    font-style: normal;
+    font-weight: 600;
+    text-align: center;
+    color: #8C2320;
+    font-size: 18px;
+    line-height: 22px;
+}
+
+.otp-number {
+    font-size: 50px;
+    color: #8C2320;
+    border: dashed 1px #8C2320;
+}
+
+.otp-footer {
+    text-decoration: underline;
+    margin-bottom: 0;
+}
+
+.mebra {
+    color: #8C2320;  
+}
+
+    
+@media only screen and (max-width: 600px) { 
+
+    .form-logo {
+        margin-top: 20px;
+    }
+
+    .form-login {
+        margin-top: 60px;
+    }
+
+}
+
+
+
+@media (min-width: 601px) and (max-width: 767px) {
+
+    .form-logo {
+        margin-top: 45px;
+    }
+
+    .form-login {
+        margin-top: 93px;
+    }
+
+}
+
+
+
+@media (min-width: 768px) and (max-width: 991px) { 
+
+    .form-logo {
+        margin-top: 45px;
+    }
+
+    .form-login {
+        margin-top: 93px;
+    }
+
+}
+
+
+
+
+@media only screen and (min-width: 992px) {
+
+    .form-logo {
+        margin-top: 40px;
+    }
+
+    .form-login {
+        margin-top: 48px;
+    }
+
+    .form-content {
+        font-size: 23px;
+        line-height: 28px;
+    }
+}

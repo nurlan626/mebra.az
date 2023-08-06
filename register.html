@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qeydiyyat - mebra.az</title>
+    <!-- all css here -->
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <link href="./assets/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body>
+    <!-- Section Register Start -->
+    <section class="container-form forms">
+        <div class="form-logo">
+            <a href="index.html">
+                <figure>
+                    <img src="./assets/images/logo/header-logo.png" alt="header-logo">
+                </figure>
+            </a>
+        </div>
+
+            <div class="form-register">
+                <div class="register-content d-flex justify-content-center align-items-center">
+                   <a href="login.html">Giriş</a>
+                   <a href="register.html">Qeydiyyatdan keç</a>
+                </div>
+            </div>
+
+            <div class="container form-fields">
+                <div class="row">
+                    <div class="col-lg-12 d-flex justify-content-center align-items-center">
+                        <form id="register" onsubmit="handleSubmit()" class="form">
+
+                            <div class="field select-field">
+                                <select name="persons" id="mySelect" onchange="showRegister()">
+                                    <option value="choose" disabled selected>Kim olaraq qeydiyyatdan keçirsiniz ?</option>
+                                    <option value="Fiziki_şəxs" id="1">Fiziki şəxs</option>
+                                    <option value="Mağaza_salon" id="2">Mağaza / salon</option>
+                                </select>
+                            </div>
+
+                            <div class="register-person">
+                                <div class="field mb-2">
+                                    <input type="text" name="personName" placeholder="Ad *" class="text" id="register-person-name" required>
+                                </div>
+
+                                <div class="register-field">
+                                    <p class="error-text person-name"></p>
+                                </div>
+
+                                <div class="field">
+                                    <input type="text" name="personSurName" placeholder="Soyad *" class="text" id="register-person-surname" required>
+                                </div>
+
+                                <div class="register-field">
+                                    <p class="error-text person-surname"></p>
+                                </div>
+                                
+        
+                                <div class="field register-field">
+                                    <input type="email" name="personEmail" placeholder="E-mail ünvanı *" class="email" id="register-person-email" required readonly>
+                                </div>
+
+                                <div class="field register-field">
+                                    <input type="tel" name="personNumber" placeholder="Telefon nömrəsi daxil edin *" class="tel" id="register-person-phone" required>
+                                </div>
+        
+                                <div class="field register-field">
+                                    <input type="password" name="personPassword" placeholder="Şifrənizi daxil edin *" class="password" id="register-person-password" required>
+                                    <i class='bx bx-hide eye-icon eye-icon-person'></i>
+                                </div>
+
+                                <div class="field register-field">
+                                    <input type="password" name="personPasswordConfirm" placeholder="Şifrənizi təsdiq edin *" class="personPasswordConfirm" id="register-person-passwordConfirm" required>
+                                    <i class='bx bx-hide eye-icon eye-icon-personComfirm'></i>
+                                </div>
+    
+                                <div class="field register-field">
+                                    <input data-bs-toggle="modal" data-bs-target="#exampleModal_Person" type="text" name="personAddress" placeholder="Ünvanı  daxil edin *" class="text input-address" id="register-person-address" readonly>
+                                </div>
+        
+                                <div class="field-button">
+                                    <button type="button" id="register-person__button">Qeydiyyatdan keçin</button>
+                                </div>
+                            </div>
+
+                            <div class="register-company">
+                                <div class="field register-field">
+                                    <input type="text" name="companyName" placeholder="Şirkət adını daxil edin *" class="text" id="register-companyName" required>
+                                </div>
+        
+                                <div class="field register-field">
+                                    <input type="email" name="companyEmail" placeholder="E-mail ünvanı *" class="email" id="register-company-email" required readonly>
+                                </div>
+    
+                                <div class="field register-field">
+                                    <input type="tel" name="companyNumber" placeholder="Telefon nömrəsi daxil edin *" class="tel" id="register-company-phone" required>
+                                </div>
+        
+                                <div class="field register-field">
+                                    <input type="password" name="companyPassword" placeholder="Şifrənizi daxil edin *" class="password" id="register-company-password" required>
+                                    <i class='bx bx-hide eye-icon eye-icon-company'></i>
+                                </div>
+
+                                <div class="field register-field">
+                                    <input type="password" name="companyPasswordComfirm" placeholder="Şifrənizi təsdiq edin *" class="companyPasswordConfirm" id="register-company-passwordConfirm" required>
+                                    <i class='bx bx-hide eye-icon eye-icon-companyComfirm'></i>
+                                </div>
+    
+                                <div class="field register-field">
+                                    <textarea name="companyDescription" id="register-company-description" placeholder="Şirkət haqqında əlavə məlumat qeyd edin ( max 250 simvol )"  maxlength="250" cols="65" rows="5" required></textarea>
+                                </div>
+    
+                                <div class="field register-field">
+                                    <input data-bs-toggle="modal" data-bs-target="#exampleModal_Company" type="text" name="companyAddress" placeholder="Ünvanı  daxil edin *" class="text input-address" id="register-company-address" required readonly>
+                                </div>
+    
+                                <div class="field register-field">
+                                    <input type="file" id="file" accept="image/jpeg, image/png, image/jpg" name="companyLogo" class="file" required>
+                                    <label id="preview-container_company" for="file">Loqonuzu daxil edin ( 200px x 200 px ) </label>
+                                </div>
+
+                                <div class="field-button">
+                                    <button type="button" id="register-company__button">Qeydiyyatdan keçin</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Section Register End -->
+
+
+    <!-- Person Modal Start -->
+    <div class="modal fade modal-person" id="exampleModal_Person" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            
+            <div class="modal-content announcement-modal-bg">
+    
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="container">
+                    <div class="announcement-modal-border-bottom">
+                        <div id="map"></div>
+
+                        <div class="field register-field mt-5">
+                            <input id="searchInput" class="controls" type="text" name="personAddress" placeholder="Ünvanı  daxil edin *" class="text">
+                        </div>
+                            
+                        <form>
+                            <ul class="geo-data" id="geoData">
+                                <li>Full Address : <span id="location"></span></li>
+                                <!-- <li>Postal Code: <span id="postal_code"></span></li>
+                                <li>Country: <span id="country"></span></li> -->
+                                <li>Latitude : <span id="lat"></span></li>
+                                <li>Longitude : <span id="lon"></span></li>
+                            </ul>
+                        </form>
+                    </div>
+                </div>
+    
+                <div class="announcement-modal-body">
+                    <form>
+                        <div class="container">
+                            <div class="announcement-modal-pay-button">
+                                <button id="create-address" type="submit" data-bs-dismiss="modal" aria-label="Close" onclick="checkGeoData()">Təsdiq edin</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Person Modal End -->
+
+    <!-- Company Modal Start -->
+    <div class="modal fade modal-company" id="exampleModal_Company" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            
+            <div class="modal-content announcement-modal-bg">
+    
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="container">
+                    <div class="announcement-modal-border-bottom">
+                        <div id="company-map"></div>
+
+                        <div class="field register-field mt-5">
+                            <input id="searchInput-company" class="controls" type="text" name="personAddress" placeholder="Ünvanı  daxil edin *" class="text">
+                        </div>
+                            
+                        <form>
+                            <ul class="geo-data" id="geoData-company">
+                                <li>Full Address : <span id="location-company"></span></li>
+                                <!-- <li>Postal Code: <span id="postal_code"></span></li>
+                                <li>Country: <span id="country"></span></li> -->
+                                <li>Latitude : <span id="lat-company"></span></li>
+                                <li>Longitude : <span id="lon-company"></span></li>
+                            </ul>
+                        </form>
+                    </div>
+                </div>
+    
+                <div class="announcement-modal-body">
+                    <form>
+                        <div class="container">
+                            <div class="announcement-modal-pay-button">
+                                <button id="create-address-company" type="submit" data-bs-dismiss="modal" aria-label="Close" onclick="checkGeoDataCompany()">Təsdiq edin</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Company Modal End -->
+
+
+
+    
+
+    
+    <!-- all js here -->
+   <script src="./assets/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous">
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyAOQdP2Pvudv7WszdYafTJ6xCnH17wL3GY&callback=initMapAndCompanyMap" async defer></script>
+    <script src="./assets/js/register.js"></script>
+    
+</body>
+
+</html>

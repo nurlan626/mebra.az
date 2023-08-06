@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Checkbox Elementleri</title>
+  <style>
+    #clearButton {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <h3>Checkbox Elementleri</h3>
+  <input type="checkbox" value="checkbox1"> Checkbox 1<br>
+  <input type="checkbox" value="checkbox2"> Checkbox 2<br>
+  <input type="checkbox" value="checkbox3"> Checkbox 3<br><br>
+  <button id="clearButton">Temizle</button>
+  <button id="confirmButton">Təsdiq et</button>
+
+  <script>
+    var checkboxes = document.querySelectorAll("input[type='checkbox']");
+    var clearButton = document.getElementById("clearButton");
+    var confirmButton = document.getElementById("confirmButton");
+
+    checkboxes.forEach(function(checkbox) {
+      checkbox.addEventListener("change", function() {
+        var checked = document.querySelectorAll("input[type='checkbox']:checked").length;
+        if (checked > 0) {
+          clearButton.style.display = "inline-block";
+        } else {
+          clearButton.style.display = "none";
+        }
+      });
+    });
+
+    clearButton.addEventListener("click", function() {
+      checkboxes.forEach(function(checkbox) {
+        checkbox.checked = false;
+      });
+      clearButton.style.display = "none";
+    });
+
+    confirmButton.addEventListener("click", function() {
+      var selectedItems = [];
+      document.querySelectorAll("input[type='checkbox']:checked").forEach(function(checkbox) {
+        selectedItems.push(checkbox.value);
+      });
+      // alert("Seçili öğeler: " + selectedItems.join(", "));
+    });
+  </script>
+</body>
+</html>
