@@ -34,14 +34,26 @@ desktopFilterClose.addEventListener("click", () => {
 const selectBtnFilterProduct = document.querySelector(".select-btn-filter-product"),
     itemsButtonFilterProduct = document.querySelectorAll(".item__filter-product");
 const listItemsFilterProduct = document.querySelector('.list-items-filter-product');
+const conditionOfProductSearchİnput = document.querySelector(".conditionOfProductSearchİnput")
 let isProductsLoading = false;
 let checkedproductId;
 let productId;
 let productIds = []
 
-selectBtnFilterProduct.addEventListener("click", async () => {
-    selectBtnFilterProduct.classList.toggle("open");
-
+conditionOfProductSearchİnput.addEventListener("input", () => {
+    fetchGetConditionOfFurniture();
+   
+})
+const fetchGetConditionOfFurniture = async () => {
+    console.log("fetchGetConditionOfFurniture");
+    listItemsFilterProduct.innerHTML = `
+         <div class="button-app">
+             <button id="clearButtonFilterProducts">Təmizlə</button>
+         </div>
+        <div class="button-app">
+            <button type="click" id="closeButtonFilterProducts">Tətbiq et </button>
+        </div>
+    `;
     if (!isProductsLoading) {
         try {
             const res = await fetch(
@@ -51,7 +63,11 @@ selectBtnFilterProduct.addEventListener("click", async () => {
                 throw new Error("Something went wrong");
 
             const data = await res.json();
-            const furnitureStatuses = data?.furnitureStatuses
+            let furnitureStatuses = data?.furnitureStatuses;
+
+            // filter by input
+            furnitureStatuses = furnitureStatuses.filter((furnitureStatuse) => furnitureStatuse.name.toLowerCase().includes(conditionOfProductSearchİnput.value.toLowerCase()))
+            
             furnitureStatuses.forEach((furnitureStatus) => {
                 const furnitureName = furnitureStatus?.name;
                 const productId = furnitureStatus.id;
@@ -87,7 +103,14 @@ selectBtnFilterProduct.addEventListener("click", async () => {
         } catch (err) {
             console.log(err.message);
         }
+        isProductsLoading = false
     }
+}
+
+selectBtnFilterProduct.addEventListener("click", () => {
+    selectBtnFilterProduct.classList.toggle("open");
+    fetchGetConditionOfFurniture()
+    
 });
 
 itemsButtonFilterProduct.forEach(item => {
